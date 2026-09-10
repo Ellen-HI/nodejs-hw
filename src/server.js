@@ -1,5 +1,5 @@
-import dns from 'node:dns';
-dns.setServers(['8.8.8.8', '1.1.1.1']);
+// import dns from 'node:dns';
+// dns.setServers(['8.8.8.8', '1.1.1.1']);
 import express from 'express';
 import { errors } from 'celebrate';
 import cors from 'cors';
@@ -24,9 +24,8 @@ app.use(authRoutes);
 app.use(userRoutes);
 app.use(notesRoutes);
 
-app.use(errors());
 app.use(notFoundHandler);
-
+app.use(errors());
 app.use(errorHandler);
 
 await connectMongoDB();
